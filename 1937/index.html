@@ -1,24 +1,25 @@
-
 <!DOCTYPE html>
 <html>
-    <head>
-      <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43097260-5"></script>
-        <script>
-        window.dataLayer = window.dataLayer || [];
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43097260-5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
         gtag('config', 'UA-43097260-5');
         </script>
 
-        <meta charset=utf-8 />
-        <title>BTV 1937</title>
-        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-        <link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.2/mapbox.css' rel='stylesheet' />
-        <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/darkly/bootstrap.min.css" rel="stylesheet" integrity="sha256-IsefKVCcMUlgpXQgIMRsqbIqC6aP153JkybxTa7W7/8= sha512-mCNEsmR1i3vWAq8hnHfbCCpc6V5fP9t0N1fEZ1wgEPF/IKteFOYZ2uk7ApzMXkT71sDJ00f9+rVMyMyBFwsaQg==" crossorigin="anonymous">
-        <style>
-            body {
+  <meta charset=utf-8 />
+  <title>BTV 1937</title>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.2/mapbox.css' rel='stylesheet' />
+  <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/darkly/bootstrap.min.css" rel="stylesheet" integrity="sha256-IsefKVCcMUlgpXQgIMRsqbIqC6aP153JkybxTa7W7/8= sha512-mCNEsmR1i3vWAq8hnHfbCCpc6V5fP9t0N1fEZ1wgEPF/IKteFOYZ2uk7ApzMXkT71sDJ00f9+rVMyMyBFwsaQg=="
+    crossorigin="anonymous">
+  <style>
+    body {
                 margin: 0;
                 overflow: hidden;
                 position: absolute;
@@ -76,10 +77,11 @@
                 #swipe div { -webkit-transform:rotate(-90deg) }
             }
         </style>
-    </head>
-    <body>
-        <style>
-        .infoToggle {
+</head>
+
+<body>
+  <style>
+    .infoToggle {
           background:rgba(0,0,0,0);
           position:absolute;
           top:10px;left:10px;
@@ -88,175 +90,135 @@
           max-width:60px;
         }
         </style>
-        <a href="#next" class="button dark icon refresh quiet js-next space-top2" id="next">The Pacific Northwest</a>
+  <div id="swipe">
+    <div class="map1">
+      <h4>1937</h4>
+    </div>
+    <img src="swipe.png" />
+    <div class="map2">
+      <h4>2018</h4>
+    </div>
+  </div>
+  <nav class='infoToggle'>
+    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">
+      <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+    </button>
+  </nav>
+  <div id='map'></div>
 
-        <div id="swipe">
-          <div class="map1"><h4>1937</h4></div>
-          <img src="swipe.png"/>
-          <div class="map2"><h4>2019</h4></div>
+  <!-- Small modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Greater Burlington, 1937-2018</h4>
         </div>
-        <nav class='infoToggle'>
-          <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">
-            <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
-          </button>
-        </nav>
-        <div id='map'></div>
-
-        <!-- Small modal -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Greater Burlington, 1937-2019</h4>
-              </div>
-              <div class="modal-body">
-                <p>This map compares aerial views of the Burlington, VT metro area between 1937 and 2019, offering a window into patterns of residential and industrial development over nearly a century. Drag the slider to toggle between old and new.</p>
-                <hr>
-                <ul>
-            		  <li>1937 Imagery acquired by the Sanborn Fire Insurance co. and archived by <a href="https://library.uvm.edu/" target="_blank">the UVM Howe Library</a></li>
-            		  <li>2019 Imagery by <a href="http://geodata.vermont.gov/pages/imagery" target="_blank">the Vermont Center for Geographic Information (VCGI)</a></li>
-            		  <!--<li>Street and Reference data by <a href="http://osm.org" target="_blank">OpenStreetmap Contributors</a></li>-->
-            		  <li>Historical imagery georeferenced and hosted using <a href="http://mapwarper.net/" target="_blank">Mapwarper</a>, by the NY Public Library</li>
-            		</ul>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
+        <div class="modal-body">
+          <p>This map compares aerial views of the Burlington, VT metro area between 1937 and 2018, offering a window into patterns of residential and industrial development over nearly a century. Drag the slider to toggle between old and new.</p>
+          <hr>
+          <ul>
+            <li>1937 Imagery acquired by the Sanborn Fire Insurance co. and archived by <a href="https://library.uvm.edu/" target="_blank">the UVM Howe Library</a></li>
+            <li>2018 Imagery provided by <a href="http://geodata.vermont.gov/pages/imagery" target="_blank">the Vermont Center for Geographic Information (VCGI)</a></li>
+            <!--<li>Street and Reference data by <a href="http://osm.org" target="_blank">OpenStreetmap Contributors</a></li>-->
+            <li>Historical imagery georeferenced and hosted using <a href="http://mapwarper.net/" target="_blank">Mapwarper</a>, by the NY Public Library</li>
+          </ul>
         </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-        <script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.2/mapbox.js'></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
-        <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-hash/v0.2.1/leaflet-hash.js'></script>
+  <script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.2/mapbox.js'></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+  <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-hash/v0.2.1/leaflet-hash.js'></script>
 
-        <script>
-        var map = L.mapbox.map('map', null, { zoomControl: false, maxZoom:18 })
-            //.addControl(L.mapbox.geocoderControl('mapbox.places-v1'))
-            .setView([44.45677, -73.21933], 15);
-        // add 2019 layer from vcgi
-        var current = L.tileLayer('https://maps.vcgi.vermont.gov/arcgis/rest/services/EGC_services/IMG_VCGI_BW_WM_CACHE/ImageServer/tile/{z}/{y}/{x}')
-        // (or mapbox as needed)
-        //var current = L.tileLayer('https://api.mapbox.com/styles/v1/landplanner/cj9nk5l123jla2rl9hstq664c/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGFuZHBsYW5uZXIiLCJhIjoiY2pmYmpmZmJrM3JjeTMzcGRvYnBjd3B6byJ9.qr2gSWrXpUhZ8vHv-cSK0w')
-            .addTo(map);
-        current.getContainer().style.filter = 'contrast(150%)';
+  <script>
+    var map = L.mapbox.map('map', null, {
+        zoomControl: false,
+        maxZoom: 18
+      })
+      //.addControl(L.mapbox.geocoderControl('mapbox.places-v1'))
+      .setView([44.45677, -73.21933], 15);
+    // add 2018 layer from vcgi
+    var current = L.tileLayer('https://maps.vcgi.vermont.gov/arcgis/rest/services/EGC_services/IMG_VCGI_BW_WM_CACHE/ImageServer/tile/{z}/{y}/{x}')
+      // (or mapbox as needed)
+      //var current = L.tileLayer('https://api.mapbox.com/styles/v1/landplanner/cj9nk5l123jla2rl9hstq664c/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGFuZHBsYW5uZXIiLCJhIjoiY2pmYmpmZmJrM3JjeTMzcGRvYnBjd3B6byJ9.qr2gSWrXpUhZ8vHv-cSK0w')
+      .addTo(map);
+    current.getContainer().style.filter = 'contrast(150%)';
 
 
-        var hash = L.hash(map);
+    var hash = L.hash(map);
 
-        var isEmbed = location.search;
-        isEmbed = isEmbed.slice(1);
+    var isEmbed = location.search;
+    isEmbed = isEmbed.slice(1);
 
-        if ( isEmbed == 'embed' ) {
-            new L.Control.Zoom({ position: 'topright' }).addTo(map);
-            map.scrollWheelZoom.disable();
+    if (isEmbed == 'embed') {
+      new L.Control.Zoom({
+        position: 'topright'
+      }).addTo(map);
+      map.scrollWheelZoom.disable();
+    }
+
+    // add 1937 layer from mapwarper
+    var overlay = L.tileLayer('http://mapwarper.net/layers/tile/409/{z}/{x}/{y}.png').addTo(map);
+    // add sepia style to 1937 layer
+    overlay.getContainer().style.filter = 'sepia(0.7) saturate(0.3)'
+
+    var range = document.getElementById('range');
+
+    map.options.zoomControl = false;
+
+    // get mouse position
+    var width = window.innerWidth;
+    var swiper = document.getElementById('swipe');
+
+    function isMobile() {
+      if (width < 720) {
+        $('#swipe').css('left', '50%');
+        var nw = map.containerPointToLayerPoint([0, 0]),
+          se = map.containerPointToLayerPoint(map.getSize()),
+          clipY = nw.y + (se.y - nw.y) * .5;
+        overlay.getContainer().style.clip = 'rect(' + [nw.y, se.x, clipY, nw.x].join('px,') + 'px)';
+        if (isEmbed == 'embed') {
+          map.dragging.disable();
         }
+      }
+    }
 
-        // add 1937 layer from mapwarper
-        var overlay = L.tileLayer('http://mapwarper.net/layers/tile/409/{z}/{x}/{y}.png').addTo(map);
-        // add sepia style to 1937 layer
-        overlay.getContainer().style.filter = 'sepia(0.7) saturate(0.3)'
-        
-        var range = document.getElementById('range');
+    map.on('move', function() {
+      isMobile();
+    });
 
-        map.options.zoomControl = false;
+    window.onresize = function(event) {
+      width = window.innerWidth;
+      isMobile();
+    };
 
-        // get mouse position
-        var width = window.innerWidth;
-        var swiper = document.getElementById('swipe');
+    function clip(x) {
+      var nw = map.containerPointToLayerPoint([0, 0]),
+        se = map.containerPointToLayerPoint(map.getSize()),
+        clipX = nw.x + (se.x - nw.x) * x;
+      overlay.getContainer().style.clip = 'rect(' + [nw.y, clipX, se.y, nw.x].join('px,') + 'px)';
+    }
 
-        function isMobile () {
-            if (width < 720 ) {
-              $('#swipe').css('left', '50%');
-              var nw = map.containerPointToLayerPoint([0, 0]),
-              se = map.containerPointToLayerPoint(map.getSize()),
-              clipY = nw.y + (se.y - nw.y) * .5;
-              overlay.getContainer().style.clip = 'rect(' + [nw.y, se.x, clipY, nw.x].join('px,') + 'px)';
-              if ( isEmbed == 'embed' ) {
-                map.dragging.disable();
-              }
-            }
-        }
+    $('body').mousemove(function(e) {
+      if (width > 720) {
+        var mouseX = e.pageX / width;
+        clip(mouseX);
+        swiper.style.left = (e.pageX + 1) + 'px';
+      }
+    });
 
-        map.on('move', function(){
-            isMobile();
-        });
+    if (width > 720) {
+      clip(.5);
+    } else {
+      isMobile();
+    }
+  </script>
+</body>
 
-        window.onresize = function(event) {
-            width = window.innerWidth;
-            isMobile();
-        };
-
-        function clip (x) {
-              var nw = map.containerPointToLayerPoint([0, 0]),
-              se = map.containerPointToLayerPoint(map.getSize()),
-              clipX = nw.x + (se.x - nw.x) * x;
-              overlay.getContainer().style.clip = 'rect(' + [nw.y, clipX, se.y, nw.x].join('px,') + 'px)';
-        }
-
-        $('body').mousemove(function(e) {
-          if (width > 720){
-              var  mouseX = e.pageX/width;
-              clip(mouseX);
-              swiper.style.left = (e.pageX + 1) + 'px';
-          }
-        });
-
-        var mapLocations = [
-        {
-        lat: 49.434,
-                 lon: -123.272,
-                 z: 5,
-                 description: 'The Pacific Northwest'
-        }, {
-        lat: 42.2124,
-                 lon: 9.0180,
-                 z: 14,
-                 description: 'Corsica'
-        }, {
-        lat: 44.9074,
-                 lon: 366.7394,
-                 z: 16,
-                 description: 'Montgenèvre, France ski trail'
-        }, {
-        lat: 46.411351502899215, lon: 8.5748291015625,
-                 z: 8,
-                 description: 'The Alps'
-        },{
-        lat: 46.5186, lon: 11.7272,
-                 z: 15,
-                 description: 'The Dolomites'
-        }, {
-        lat: 23.200960808078566, lon: 82.0458984375,
-                 z: 5,
-                 description: 'The Himalayas'
-        }, {
-        lat: 36.2479, lon: 247.7898,
-                 z: 11,
-                 description: 'The Grand Canyon'
-        }, {
-        lat: 45.9360, lon: 6.8881,
-                 z: 12,
-                 description: 'Chamonix-Mont-Blanc, France'
-        }];
-
-        var i = 1;
-        $('.js-next').on('click', function() {
-                if (i === mapLocations.length) i = 0;
-                map.setView([mapLocations[i].lat,mapLocations[i].lon],mapLocations[i].z);
-                $(this).text(mapLocations[i].description);
-                i++;
-                return false;
-                });
-
-            if( width > 720 ) {
-                    clip(.5);
-                } else {
-                    isMobile();
-                }
-
-            </script>
-            </body>
 </html>
