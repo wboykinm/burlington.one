@@ -30,7 +30,7 @@
    <meta name="twitter:description" value="An interactive map comparing aerial views of the Burlington VT metro area between 1937 and 2018" />
    <meta name="twitter:image" content="https://burlington.one/1937/img/social_large.png" />
    <meta name="twitter:url" value="https://burlington.one/1937" />
-  <link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.2/mapbox.css' rel='stylesheet' />
+  <link href='https://api.tiles.mapbox.com/mapbox.js/v3.2.0/mapbox.css' rel='stylesheet' />
   <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/darkly/bootstrap.min.css" rel="stylesheet" integrity="sha256-IsefKVCcMUlgpXQgIMRsqbIqC6aP153JkybxTa7W7/8= sha512-mCNEsmR1i3vWAq8hnHfbCCpc6V5fP9t0N1fEZ1wgEPF/IKteFOYZ2uk7ApzMXkT71sDJ00f9+rVMyMyBFwsaQg=="
     crossorigin="anonymous">
   <style>
@@ -146,7 +146,7 @@
     </div>
   </div>
 
-  <script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.2/mapbox.js'></script>
+  <script src='https://api.tiles.mapbox.com/mapbox.js/v3.2.0/mapbox.js'></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
   <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-hash/v0.2.1/leaflet-hash.js'></script>
@@ -157,7 +157,7 @@
         maxZoom: 18
       })
       //.addControl(L.mapbox.geocoderControl('mapbox.places-v1'))
-      .setView([44.45677, -73.21933], 15);
+      .setView([44.4776, -73.2064], 15);
     // add 2018 layer from vcgi
     var current = L.tileLayer('https://maps.vcgi.vermont.gov/arcgis/rest/services/EGC_services/IMG_VCGI_BW_WM_CACHE/ImageServer/tile/{z}/{y}/{x}')
       // (or mapbox as needed)
@@ -182,7 +182,10 @@
     var overlay = L.tileLayer('http://mapwarper.net/layers/tile/409/{z}/{x}/{y}.png').addTo(map);
     // add sepia style to 1937 layer
     overlay.getContainer().style.filter = 'sepia(0.7) saturate(0.3)'
-
+    
+    // Add general labels
+    var labels = L.tileLayer('labels/{z}/{x}/{y}.png').addTo(map);
+        
     var range = document.getElementById('range');
 
     map.options.zoomControl = false;

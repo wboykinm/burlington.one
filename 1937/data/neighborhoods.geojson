@@ -1,0 +1,24 @@
+{
+"type": "FeatureCollection",
+"name": "neighborhoods",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "name": "Waterfront", "type": "neighborhood" }, "geometry": { "type": "Point", "coordinates": [ -73.22313143, 44.48041475 ] } },
+{ "type": "Feature", "properties": { "name": "The Five Sisters", "type": "microhood" }, "geometry": { "type": "Point", "coordinates": [ -73.21158842, 44.46506424 ] } },
+{ "type": "Feature", "properties": { "name": "North Hill Section", "type": "neighborhood" }, "geometry": { "type": "Point", "coordinates": [ -73.20233012, 44.48249079 ] } },
+{ "type": "Feature", "properties": { "name": "South Hill Section", "type": "neighborhood" }, "geometry": { "type": "Point", "coordinates": [ -73.20319136, 44.46946599 ] } },
+{ "type": "Feature", "properties": { "name": "Old North End", "type": "neighborhood" }, "geometry": { "type": "Point", "coordinates": [ -73.21473762, 44.48617923 ] } },
+{ "type": "Feature", "properties": { "name": "Riverside", "type": "neighborhood" }, "geometry": { "type": "Point", "coordinates": [ -73.18957006, 44.48595934 ] } },
+{ "type": "Feature", "properties": { "name": "Downtown", "type": "neighborhood" }, "geometry": { "type": "Point", "coordinates": [ -73.21274253, 44.4773649 ] } },
+{ "type": "Feature", "properties": { "name": "University of Vermont", "type": "neighborhood" }, "geometry": { "type": "Point", "coordinates": [ -73.19632304, 44.47589369 ] } },
+{ "type": "Feature", "properties": { "name": "Intervale", "type": "neighborhood" }, "geometry": { "type": "Point", "coordinates": [ -73.21842359, 44.49992949 ] } },
+{ "type": "Feature", "properties": { "name": "New North End", "type": "neighborhood" }, "geometry": { "type": "Point", "coordinates": [ -73.25155302, 44.51120172 ] } },
+{ "type": "Feature", "properties": { "name": "Appletree Point", "type": "microhood" }, "geometry": { "type": "Point", "coordinates": [ -73.26737575, 44.50728151 ] } },
+{ "type": "Feature", "properties": { "name": "The Addition", "type": "microhood" }, "geometry": { "type": "Point", "coordinates": [ -73.21318529, 44.45318171 ] } },
+{ "type": "Feature", "properties": { "name": "Five Avenues", "type": "microhood" }, "geometry": { "type": "Point", "coordinates": [ -73.210496, 44.45996048 ] } },
+{ "type": "Feature", "properties": { "name": "Lakeside", "type": "microhood" }, "geometry": { "type": "Point", "coordinates": [ -73.220090062664525, 44.459378332169962 ] } },
+{ "type": "Feature", "properties": { "name": "South End", "type": "neighborhood" }, "geometry": { "type": "Point", "coordinates": [ -73.214269909378615, 44.455422301572007 ] } },
+{ "type": "Feature", "properties": { "name": "Lakewood", "type": "microhood" }, "geometry": { "type": "Point", "coordinates": [ -73.24536712, 44.5021267 ] } },
+{ "type": "Feature", "properties": { "name": "Van Patten", "type": "microhood" }, "geometry": { "type": "Point", "coordinates": [ -73.2364031, 44.50739336 ] } }
+]
+}

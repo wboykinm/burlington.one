@@ -1,0 +1,11 @@
+{
+    "attribution": "", 
+    "description": "", 
+    "center": "-72.9671,44.4387,10", 
+    "bounds": "-73.4628,43.9632,-72.4768,44.8734", 
+    "minzoom": "9", 
+    "version": "1.0.0", 
+    "template": "", 
+    "maxzoom": "16", 
+    "name": "BTVmetro labels"
+}
