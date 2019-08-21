@@ -1,0 +1,4 @@
+- [Brattleboro, 1885](https://www.loc.gov/item/sanborn08910_001/)
+- [Burlington, 1885](https://www.loc.gov/resource/g3754bm.g089121885/?st=gallery)
+- [Vergennes, 1892](https://www.loc.gov/resource/g3754vm.g089531892/?st=gallery)
+- [Saint Albans, 1889](https://www.loc.gov/item/sanborn08945_002/)

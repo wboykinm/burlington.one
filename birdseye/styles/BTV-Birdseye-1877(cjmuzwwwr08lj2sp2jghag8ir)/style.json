@@ -1,0 +1,59 @@
+{
+    "version": 8,
+    "name": "BTV Birdseye 1877",
+    "metadata": {
+        "mapbox:autocomposite": true,
+        "mapbox:type": "template",
+        "mapbox:sdk-support": {
+            "js": "0.46.0",
+            "android": "6.0.0",
+            "ios": "4.0.0"
+        }
+    },
+    "center": [-73.21280207955078, 44.47661915607253],
+    "zoom": 17.093424595090305,
+    "bearing": 0,
+    "pitch": 0,
+    "sources": {
+        "mapbox://landplanner.80ugchsf": {
+            "url": "mapbox://landplanner.80ugchsf",
+            "type": "raster",
+            "tileSize": 256
+        },
+        "mapbox://mapbox.satellite": {
+            "url": "mapbox://mapbox.satellite",
+            "type": "raster",
+            "tileSize": 256
+        }
+    },
+    "sprite": "mapbox://sprites/landplanner/cjmuzwwwr08lj2sp2jghag8ir",
+    "glyphs": "mapbox://fonts/landplanner/{fontstack}/{range}.pbf",
+    "layers": [
+        {
+            "id": "background",
+            "type": "background",
+            "paint": {"background-color": "rgba(0,0,0,0)"}
+        },
+        {
+            "id": "mapbox-satellite",
+            "type": "raster",
+            "metadata": {},
+            "source": "mapbox://mapbox.satellite",
+            "layout": {"visibility": "none"},
+            "paint": {}
+        },
+        {
+            "id": "landplanner-80ugchsf",
+            "type": "raster",
+            "source": "mapbox://landplanner.80ugchsf",
+            "layout": {},
+            "paint": {}
+        }
+    ],
+    "created": "2018-10-04T19:50:37.054Z",
+    "id": "cjmuzwwwr08lj2sp2jghag8ir",
+    "modified": "2018-10-04T19:55:06.413Z",
+    "owner": "landplanner",
+    "visibility": "private",
+    "draft": false
+}

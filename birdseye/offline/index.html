@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>Birdseye #BTV</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <link href='../lib/mapbox-gl.css' rel='stylesheet' />
+    <link rel='stylesheet' href='../lib/mapbox-gl-compare.css' type='text/css' />
+    <style>
+      body { 
+        margin:0; 
+        padding:0; 
+        background-image: url('../sanborn_texture.png');
+        background-repeat: repeat;
+      }
+    </style>
+</head>
+<body>
+  <style>
+    body {
+        overflow: hidden;
+    }
+
+    body * {
+       -webkit-touch-callout: none;
+         -webkit-user-select: none;
+            -moz-user-select: none;
+             -ms-user-select: none;
+                 user-select: none;
+    }
+
+    .map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+    }
+    .info {
+      display: block;
+      position: absolute;
+      margin: 0px auto;
+      width: 10%;
+      padding: 10px;
+      border: none;
+      border-radius: 3px;
+      font-size: 48px;
+      text-align: center;
+      color: #222;
+      background: rgba(255,255,255,0.4);
+    }
+    #old {
+      left: 10%;
+    }
+    #new {
+      right: 10%;
+    }
+  </style>
+  <div id='before' class='map'></div>
+  <div id='after' class='map'></div>
+  <pre id='old' class='info'>1877</pre>
+  <pre id='new' class='info'>2018</pre>
+  <script src='../lib/mapbox-gl.js'></script>
+  <script src='../lib/mapbox-gl-compare.js'></script>
+  <script src='../lib/styles.js'></script>
+  <script>
+    //mapboxgl.accessToken = 'pk.eyJ1IjoibGFuZHBsYW5uZXIiLCJhIjoiY2prY3MzYngzMGNsdTNrcW0yM3doaXplOSJ9.796so4xYNFZW4UK5lOgapw';
+    mapboxgl.accessToken = 'NOT-REQUIRED-WITH-YOUR-VECTOR-TILES-DATA';
+
+
+    var beforeMap = new mapboxgl.Map({
+      container: 'before',
+      center: [-73.213544, 44.476507],
+      zoom: 16.5,
+      pitch: 60,
+      bearing: 57,
+      style: styleBird,
+      minZoom: 12,
+      maxZoom: 18,
+      maxBounds: [
+        [-73.254543, 44.440818], // Southwest coordinates
+        [-73.163869, 44.513335]  // Northeast coordinates
+      ]
+    });
+    
+    var afterMap = new mapboxgl.Map({
+      container: 'after',
+      center: [-73.213544, 44.476507],
+      zoom: 16.5,
+      pitch: 60,
+      bearing: 57,
+      style: styleVec,
+      minZoom: 12,
+      maxZoom: 18,
+      maxBounds: [
+        [-73.254543, 44.440818], // Southwest coordinates
+        [-73.163869, 44.513335]  // Northeast coordinates
+      ]
+    });
+
+    var map = new mapboxgl.Compare(beforeMap, afterMap, {
+      // Set this to enable comparing two maps by mouse movement:
+      // mousemove: true
+    });
+    //map.addControl(new mapboxgl.NavigationControl());
+  </script>
+
+</body>
+</html>

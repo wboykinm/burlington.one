@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>Birdseye #BTV</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <link href='lib/mapbox-gl.css' rel='stylesheet' />
+    <link rel='stylesheet' href='lib/mapbox-gl-compare.css' type='text/css' />
+    <style>
+      #map { position:absolute; top:0; bottom:0; width:100%; }
+      body { 
+        margin:0; 
+        padding:0; 
+        background-image: url('sanborn_texture.png');
+        background-repeat: repeat;
+      }
+    </style>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127031681-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-127031681-1');
+    </script>
+</head>
+<body>
+
+<style>
+body {
+    overflow: hidden;
+}
+
+body * {
+   -webkit-touch-callout: none;
+     -webkit-user-select: none;
+        -moz-user-select: none;
+         -ms-user-select: none;
+             user-select: none;
+}
+
+.map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+.info {
+  display: block;
+  position: absolute;
+  margin: 0px auto;
+  width: 10%;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  font-size: 48px;
+  text-align: center;
+  color: #222;
+  background: rgba(255,255,255,0.3);
+}
+#old {
+  left: 10%;
+}
+#new {
+  right: 10%;
+}
+</style>
+<script src='lib/mapbox-gl.js'></script>
+<script src='lib/mapbox-gl-compare.js'></script>
+
+<div id='before' class='map'></div>
+<div id='after' class='map'></div>
+<pre id='old' class='info'>1877</pre>
+<pre id='new' class='info'>2018</pre>
+
+<script>
+  mapboxgl.accessToken = 'pk.eyJ1IjoibGFuZHBsYW5uZXIiLCJhIjoiY2prY3MzYngzMGNsdTNrcW0yM3doaXplOSJ9.796so4xYNFZW4UK5lOgapw';
+  var beforeMap = new mapboxgl.Map({
+    container: 'before',
+    style: 'mapbox://styles/landplanner/cjmuzwwwr08lj2sp2jghag8ir',
+    center: [-73.213544, 44.476507],
+    zoom: 17,
+    pitch: 60,
+    bearing: 57,
+    hash: true,
+    pitchWithRotate: false,
+    minZoom: 13,
+    maxZoom: 18,
+    maxBounds: [
+      [-73.254543, 44.440818], // Southwest coordinates
+      [-73.163869, 44.513335]  // Northeast coordinates
+    ]
+  });
+
+  var afterMap = new mapboxgl.Map({
+    container: 'after',
+    style: 'mapbox://styles/landplanner/cjmuz5ury3tf92rnu7k5lxij2',
+    center: [-73.213544, 44.476507],
+    zoom: 17,
+    pitch: 60,
+    bearing: 57,
+    hash: true,
+    pitchWithRotate: false,
+    minZoom: 13,
+    maxZoom: 18,
+    maxBounds: [
+      [-73.254543, 44.440818], // Southwest coordinates
+      [-73.163869, 44.513335]  // Northeast coordinates
+    ]
+  });
+
+  var map = new mapboxgl.Compare(beforeMap, afterMap, {
+    // Set this to enable comparing two maps by mouse movement:
+    // mousemove: true
+  });
+</script>
+
+</body>
+</html>
