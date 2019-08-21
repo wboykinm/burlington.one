@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title></title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.1/mapbox-gl.css' rel='stylesheet' />
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/readable/bootstrap.min.css" rel="stylesheet">
+    <meta property="og:site_name" content="BTV Superblocks"/>
+    <meta property="og:title" content="BTV Superblocks"/>
+    <meta property="og:description" content="An implementation of superblocks in Burlington, VT"/>
+    <meta property="og:image" content="preview.png">
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+        #content {
+          position:absolute;
+          left:0;
+          right:0;
+          min-height:50px;
+          bottom:0;
+          background:RGBA(255,255,255, 0.9);
+          border-top: 2px solid #333;
+        }
+          .sidecontainer {
+          padding:20px;
+        }
+    </style>
+</head>
+<body>
+
+<div id='map'></div>
+<div id='content'>
+  <div class="sidecontainer">
+    <div class="row">
+      <div class="col-md-10"><h2>Superblocks: Central Burlington, VT</h2></div>
+      <div class="col-md-2"><a class="btn btn-primary btn-lg" target="_blank" href="https://medium.com/@vtcraghead/4f96e0ca643a">Learn more</a></div>
+    </div>    
+  </div>
+</div>
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.1/mapbox-gl.js'></script>
+<script>
+  mapboxgl.accessToken = 'pk.eyJ1IjoibGFuZHBsYW5uZXIiLCJhIjoiY2p6aWs4dDBrMDA1bDNibGVtaHdhOGtvMCJ9._j6fdy7uT-zpyPDIQxiT4A';
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/landplanner/cirqe4a8b002cgannauu3duzs',
+    center: [-73.2141, 44.4757],
+    zoom: 13.9,
+    bearing: 80,
+    pitch: 45
+  });
+</script>
+
+</body>
+</html>
