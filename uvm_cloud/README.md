@@ -39,7 +39,7 @@ tmp_tiff/UVM_20130423f_green.csv --> tmp.bill_test_ig
 tmp_tiff/UVM_20130423f_blue.csv --> tmp.bill_test_ib
 ```
 
-# Over on BigQuery, run the join as a sequence of created tables:
+### Over on BigQuery, run the join as a sequence of created tables:
 
 ```SQL
 CREATE OR REPLACE TABLE `tmp.bill_image` AS (
@@ -104,5 +104,5 @@ SELECT
 FROM `tmp.bill_final` 
 ```
 
-# Export the above 
+### Export the above 
 . . . as a `.json` file, stash it on dropbox for retrieval by the client, as specified in [index.html](index.html)
