@@ -1,10 +1,9 @@
 <html>
 <head>
   <title>UVM in points</title>
-  <script src="https://unpkg.com/deck.gl@^7.0.0/dist.min.js"></script>
-  <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.js"></script>
   <link rel="stylesheet" type="text/css" href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.css">
   <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/readable/bootstrap.min.css" rel="stylesheet">
+  <link href='https://api.mapbox.com/mapbox-assembly/v0.20.0/assembly.min.css' rel='stylesheet' />
   <meta property="og:site_name" content="UVM in points"/>
   <meta property="og:title" content="UVM in points"/>
   <meta property="og:description" content="The University of Vermont as an imagery-fused point cloud"/>
@@ -36,20 +35,28 @@
 </head>
 
 <body>
-<div id="map"></div>
-<div id='content'>
-  <div class="sidecontainer">
-    <div class="row">
-      <div class="col-md-10"><h2>The University of Vermont (in points)</h2></div>
-      <div class="col-md-2">
-        <!--<a class="btn btn-primary btn-lg" target="_blank" href="https://billmorris.io/shoals/posts/2016-08-11_superblocks-for-a-small-city/">Learn more</a>-->
-        <h4>Lidar + Orthoimagery</h4>
-        <small>Method by <a href="https://blog.mapbox.com/coloring-lidar-4522ca5a7186" target="_blank">Mapbox</a> & friends, Data by <a href="https://vcgi.vermont.gov/" target="_blank">VCGI</a></small>
+  <div class='viewport-full relative'>
+    <div id="map"></div>
+    <div id="loading-background" class='flex-parent flex-parent--center-cross flex-parent--center-main absolute top right bottom left bg-darken10 z5'>
+      <div id="spinner" class='flex-child loading'></div>
+    </div>
+    <div id='content'>
+      <div class="sidecontainer">
+        <div class="row">
+          <div class="col-md-10"><h2>The University of Vermont (in points)</h2></div>
+          <div class="col-md-2">
+            <!--<a class="btn btn-primary btn-lg" target="_blank" href="https://billmorris.io/shoals/posts/2016-08-11_superblocks-for-a-small-city/">Learn more</a>-->
+            <h4>Lidar + Orthoimagery</h4>
+            <small>Method by <a href="https://blog.mapbox.com/coloring-lidar-4522ca5a7186" target="_blank">Mapbox</a> & friends, Data by <a href="https://vcgi.vermont.gov/" target="_blank">VCGI</a></small>
+          </div>
+        </div>    
       </div>
-    </div>    
+    </div>
   </div>
-</div>
 </body>
+<script src="https://unpkg.com/deck.gl@^7.0.0/dist.min.js"></script>
+<script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.js"></script>
+<script async defer src="https://api.mapbox.com/mapbox-assembly/v0.10.1/assembly.js"></script>
 <script type="text/javascript">
 
   const { MapboxLayer, PointCloudLayer } = deck;
@@ -66,8 +73,17 @@
   });
   
   const brightness = 1.5
+  const spinnerEl = document.getElementById('spinner')
+  const backgroundEl = document.getElementById('loading-background')
   
   map.on('style.load', () => {
+    loadingSpinner(false);
+    map.addControl(new mapboxgl.NavigationControl());
+    addLayerSpinner()
+  });
+  
+  function addLayerSpinner() {
+    loadingSpinner(true);
     map.addLayer(new MapboxLayer({
       id: 'deckgl-PointCloudLayer',
       type: PointCloudLayer,
@@ -79,9 +95,28 @@
       pointSize: 0.5,
       opacity: 1
     }));
-    
-    map.addControl(new mapboxgl.NavigationControl());
-  });
+    map.on('render', stopSpinner);
+  }
+  
+  function stopSpinner (e) {
+    console.log('rendered!')
+    if (e.target && e.target.loaded()) {
+      loadingSpinner(false);
+      map.off('render', stopSpinner)
+    }
+  }
+  
+  function loadingSpinner(on) {
+    if (on) {
+      spinnerEl.classList.add('loading');
+      backgroundEl.classList.add('absolute');
+      backgroundEl.classList.remove('none');
+    } else {
+      spinnerEl.classList.remove('loading');
+      backgroundEl.classList.remove('absolute');
+      backgroundEl.classList.add('none');
+    }
+  }
 
 </script>
 </html>
