@@ -30,68 +30,59 @@
    <meta name="twitter:description" value="An interactive map comparing aerial views of the Burlington VT metro area between 1937 and 2018" />
    <meta name="twitter:image" content="https://burlington.one/1937/img/social_large.png" />
    <meta name="twitter:url" value="https://burlington.one/1937" />
-  <link href='https://api.tiles.mapbox.com/mapbox.js/v3.2.0/mapbox.css' rel='stylesheet' />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+  integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+  crossorigin=""/>
   <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/darkly/bootstrap.min.css" rel="stylesheet" integrity="sha256-IsefKVCcMUlgpXQgIMRsqbIqC6aP153JkybxTa7W7/8= sha512-mCNEsmR1i3vWAq8hnHfbCCpc6V5fP9t0N1fEZ1wgEPF/IKteFOYZ2uk7ApzMXkT71sDJ00f9+rVMyMyBFwsaQg=="
     crossorigin="anonymous">
   <style>
     body {
-                margin: 0;
-                overflow: hidden;
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                width: 100%;
-                padding: 0;
-                background-color: #333;
-            }
+      margin: 0;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      padding: 0;
+      background-color: #333;
+    }
 
-            #map { position:absolute; top:0; bottom: 0; width:100%; }
+    #map { position:absolute; top:0; bottom: 0; width:100%; }
 
-            .pill .button { font-size: 11px; padding: 0.5em; height: 32px;}
-            .leaflet-control {
-                background-color: rgba(0,0,0,0.25);
-                border-color: rgba(0,0,0,0);
-            }
+    .pill .button { font-size: 11px; padding: 0.5em; height: 32px;}
+    .leaflet-control {
+      background-color: rgba(0,0,0,0.25);
+      border-color: rgba(0,0,0,0);
+    }
 
-            .leaflet-bar a:active, .leaflet-bar a:hover {
-                background-color: rgba(255,255,255,0.5);
-                cursor: pointer;
-            }
-            .leaflet-control-mapbox-geocoder .leaflet-control-mapbox-geocoder-wrap {
-                border-color: rgba(0,0,0,0.25);
-            }
-            .leaflet-container.dark .map-tooltip .close, .leaflet-control-layers-toggle, .leaflet-control-zoom-in, .leaflet-control-zoom-out, .leaflet-popup-close-button, .map-tooltip .close, .mapbox-icon {-webkit-filter: invert(100%); }
+    .leaflet-bar a:active, .leaflet-bar a:hover {
+      background-color: rgba(255,255,255,0.5);
+      cursor: pointer;
+    }
 
-            #swipe { position: absolute; top: 0; left: 50%;  height: 100%; z-index: 99; }
-            #swipe div {
-                background-color: rgba(255,255,255,0.5);
-                //background-color: rgba(0,0,0,.15);
-                position: absolute;
-                font-size: .8em;
-                top: 45%;
-                font-family: 'Open Sans Bold', sans-serif;
-                color: rgba(0,0,0,.6);
-                //color:#FFF;
-                padding: 2px 5px;
-                border-radius: 3px;
-            }
-            #swipe .map1 { left: -8em }
-            #swipe .map2 { right: -8em }
+    .leaflet-container.dark .map-tooltip .close, .leaflet-control-layers-toggle, .leaflet-control-zoom-in, .leaflet-control-zoom-out, .leaflet-popup-close-button, .map-tooltip .close {-webkit-filter: invert(100%); }
 
+    #swipe { position: absolute; top: 0; left: 50%;  height: 100%; z-index: 1000; }
+    #swipe div {
+      background-color: rgba(255,255,255,0.5);
+      position: absolute;
+      font-size: .8em;
+      top: 45%;
+      font-family: 'Open Sans Bold', sans-serif;
+      color: rgba(0,0,0,.6);
+      padding: 2px 5px;
+      border-radius: 3px;
+    }
+    #swipe .map1 { left: -8em }
+    #swipe .map2 { right: -8em }
 
-            #next { z-index: 100; margin-left: 20px }
-            #next:hover { color: #FFF }
-            .left-b-logo {
-                position: fixed;
-                bottom: 4px;
-                left: 10px;
-            }
-
-            @media all {
-                #swipe { -webkit-transform:rotate(90deg) }
-                #swipe div { -webkit-transform:rotate(-90deg) }
-            }
-        </style>
+    @media all {
+      #swipe { -webkit-transform:rotate(90deg) }
+      #swipe div { 
+        -webkit-transform:rotate(-90deg) 
+      }
+    }
+</style>
 </head>
 
 <body>
@@ -100,7 +91,7 @@
         background:rgba(0,0,0,0);
         position:absolute;
         top:10px;left:10px;
-        z-index:1;
+        z-index: 10000;
         border-radius:3px;
         max-width:60px;
       }
@@ -115,7 +106,7 @@
   </div>
   <nav class='infoToggle'>
     <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">
-      <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+      <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
     </button>
   </nav>
   <div id='map'></div>
@@ -145,37 +136,26 @@
     </div>
   </div>
 
-  <script src='https://api.tiles.mapbox.com/mapbox.js/v3.2.0/mapbox.js'></script>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+  integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+  crossorigin=""></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
   <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-hash/v0.2.1/leaflet-hash.js'></script>
 
   <script>
-    var map = L.mapbox.map('map', null, {
+    var map = L.map('map', {
         zoomControl: false,
         maxZoom: 18
       })
-      //.addControl(L.mapbox.geocoderControl('mapbox.places-v1'))
       .setView([44.4776, -73.2064], 15);
     // add 2018 layer from vcgi
     var current = L.tileLayer('https://maps.vcgi.vermont.gov/arcgis/rest/services/EGC_services/IMG_VCGI_BW_WM_CACHE/ImageServer/tile/{z}/{y}/{x}')
-      // (or mapbox as needed)
-      //var current = L.tileLayer('https://api.mapbox.com/styles/v1/landplanner/cj9nk5l123jla2rl9hstq664c/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGFuZHBsYW5uZXIiLCJhIjoiY2pmYmpmZmJrM3JjeTMzcGRvYnBjd3B6byJ9.qr2gSWrXpUhZ8vHv-cSK0w')
       .addTo(map);
     current.getContainer().style.filter = 'contrast(150%)';
 
-
+    new L.Control.Zoom({ position: 'topright' }).addTo(map);
     var hash = L.hash(map);
-
-    var isEmbed = location.search;
-    isEmbed = isEmbed.slice(1);
-
-    if (isEmbed == 'embed') {
-      new L.Control.Zoom({
-        position: 'topright'
-      }).addTo(map);
-      map.scrollWheelZoom.disable();
-    }
 
     // add 1937 layer from mapwarper
     var overlay = L.tileLayer('http://mapwarper.net/layers/tile/409/{z}/{x}/{y}.png').addTo(map);
@@ -199,9 +179,6 @@
           se = map.containerPointToLayerPoint(map.getSize()),
           clipY = nw.y + (se.y - nw.y) * .5;
         overlay.getContainer().style.clip = 'rect(' + [nw.y, se.x, clipY, nw.x].join('px,') + 'px)';
-        if (isEmbed == 'embed') {
-          map.dragging.disable();
-        }
     }
 
     map.on('move', function() {
