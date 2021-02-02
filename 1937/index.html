@@ -87,7 +87,7 @@
                 left: 10px;
             }
 
-            @media all and (max-width: 720px) {
+            @media all {
                 #swipe { -webkit-transform:rotate(90deg) }
                 #swipe div { -webkit-transform:rotate(-90deg) }
             }
@@ -97,19 +97,18 @@
 <body>
   <style>
     .infoToggle {
-          background:rgba(0,0,0,0);
-          position:absolute;
-          top:10px;left:10px;
-          z-index:1;
-          border-radius:3px;
-          max-width:60px;
-        }
-        </style>
+        background:rgba(0,0,0,0);
+        position:absolute;
+        top:10px;left:10px;
+        z-index:1;
+        border-radius:3px;
+        max-width:60px;
+      }
+    </style>
   <div id="swipe">
     <div class="map1">
       <h4>1937</h4>
     </div>
-    <img src="swipe.png" />
     <div class="map2">
       <h4>2018</h4>
     </div>
@@ -194,8 +193,7 @@
     var width = window.innerWidth;
     var swiper = document.getElementById('swipe');
 
-    function isMobile() {
-      if (width < 720) {
+    function splitView() {
         $('#swipe').css('left', '50%');
         var nw = map.containerPointToLayerPoint([0, 0]),
           se = map.containerPointToLayerPoint(map.getSize()),
@@ -204,38 +202,16 @@
         if (isEmbed == 'embed') {
           map.dragging.disable();
         }
-      }
     }
 
     map.on('move', function() {
-      isMobile();
+      splitView();
     });
 
     window.onresize = function(event) {
       width = window.innerWidth;
-      isMobile();
+      splitView();
     };
-
-    function clip(x) {
-      var nw = map.containerPointToLayerPoint([0, 0]),
-        se = map.containerPointToLayerPoint(map.getSize()),
-        clipX = nw.x + (se.x - nw.x) * x;
-      overlay.getContainer().style.clip = 'rect(' + [nw.y, clipX, se.y, nw.x].join('px,') + 'px)';
-    }
-
-    $('body').mousemove(function(e) {
-      if (width > 720) {
-        var mouseX = e.pageX / width;
-        clip(mouseX);
-        swiper.style.left = (e.pageX + 1) + 'px';
-      }
-    });
-
-    if (width > 720) {
-      clip(.5);
-    } else {
-      isMobile();
-    }
   </script>
 </body>
 
