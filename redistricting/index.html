@@ -19,6 +19,14 @@
       bottom: 0;
       width: 100%;
     }
+    .year_2010 {
+      padding: 10px;
+      background-color: #90488a;
+    }
+    .year_2020 {
+      padding: 10px;
+      background-color: #e5f5a3;
+    }
   </style>
 
 </head>
@@ -39,7 +47,7 @@
       cursor: crosshair;
     }
     #features {
-      padding: 20px;
+      padding: 0px;
     }
     h1 {
       padding: 10px;
@@ -47,7 +55,7 @@
   </style>
   <div id="map"></div>
   <pre id="sidebar">
-    <h1>Burlington, VT</h1><hr>
+    <h1>Burlington, VT</h1>
     <div id="features"></div>
   </pre>
   <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
@@ -93,7 +101,7 @@
       const pop_2010 = displayFeatures.find(x => x.sourceLayer === 'btv_block_stats_2010').properties;
       const pop_2020 = displayFeatures.find(x => x.sourceLayer === 'btv_block_stats_2020').properties;
 
-      document.getElementById('features').innerHTML = '<h2>2010</h2><p>Block ' + pop_2010.geoid + '</p><p>Population = <b>' + pop_2010.total_population + '</b></p><br><h2>2020</h2><p>Block ' + pop_2020.geoid + '</p><p>Population = <b>' + pop_2020.total_population + '</b></p>';
+      document.getElementById('features').innerHTML = '<div class="year_2010"><h2>2010</h2><p>Block ' + pop_2010.geoid + '</p><p>Population = <b>' + pop_2010.total_population + '</b></p></div><div class="year_2020"><h2>2020</h2><p>Block ' + pop_2020.geoid + '</p><p>Population = <b>' + pop_2020.total_population + '</b></p><div>';
 
     });
   </script>
