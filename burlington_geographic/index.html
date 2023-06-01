@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!-- saved from url=(0064)https://www.uvm.edu/place/burlingtongeographic/maps/interactive/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+
+  <title>Burlington Geographic - All Maps</title>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+  <link href="./btv_files/mapbox.css" rel="stylesheet">
+  <link href="./btv_files/bootstrap.min.css" rel="stylesheet">
+  <link href="./btv_files/font-awesome.min.css" rel="stylesheet">
+  <link href="./btv_files/map-style.css" rel="stylesheet">
+  <meta property="og:site_name" content="Burlington Geographic">
+  <meta property="og:title" content="Map">
+  <meta property="og:description" content="Explore Burlington ">
+  <meta property="og:image" content="preview.png">
+</head>
+
+<body>
+  <div id="map-ui">
+    <h2 style="padding:15px;">Themes:</h2>
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+      <div class="panel panel-primary">
+        <div class="panel-heading" role="tab" id="headingSocial">
+          <h4 class="panel-title">
+            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="https://www.uvm.edu/place/burlingtongeographic/maps/interactive/#collapseSocial" aria-expanded="true" aria-controls="collapseSocial">
+              Social
+            </a>
+          </h4>
+        </div>
+        <div id="collapseSocial" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSocial">
+          <div class="panel-body">
+            <div class="btn-group-vertical" id="socialLayers">
+              <!--<h4>Select a Layer:</h4>-->
+            <button class="btn btn-default btn-xs btn-block" type="button">City Boundary</button><button class="btn btn-default btn-xs btn-block" type="button">Chittenden County Towns</button><button class="btn btn-default btn-xs btn-block" type="button">Population Density, 2010</button><button class="btn btn-default btn-xs btn-block" type="button">Households, 2010</button><button class="btn btn-default btn-xs btn-block" type="button">City Parks</button><button class="btn btn-default btn-xs btn-block" type="button">Building Footprints</button><button class="btn btn-default btn-xs btn-block" type="button">Community Gardens</button></div>          
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading" role="tab" id="headingNatural">
+          <h4 class="panel-title">
+            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="https://www.uvm.edu/place/burlingtongeographic/maps/interactive/#collapseNatural" aria-expanded="true" aria-controls="collapseNatural">
+              Natural
+            </a>
+          </h4>
+        </div>
+        <div id="collapseNatural" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingNatural">
+          <div class="panel-body">
+            <div class="btn-group-vertical" id="naturalLayers">
+              <!--<h4>Select a Layer:</h4>-->
+            <button class="btn btn-default btn-xs btn-block" type="button">Bedrock Geology</button><button class="btn btn-default btn-xs btn-block" type="button">Surficial Geology</button><button class="btn btn-default btn-xs btn-block" type="button">Soil Types</button><button class="btn btn-default btn-xs btn-block" type="button">Subwatersheds</button><button class="btn btn-default btn-xs btn-block" type="button">Elevation Contours</button><button class="btn btn-default btn-xs btn-block" type="button">VSWI Wetlands</button><button class="btn btn-default btn-xs btn-block" type="button">Annual Mean Precipitation</button></div>          
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading" role="tab" id="headingHistorical">
+          <h4 class="panel-title">
+            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="https://www.uvm.edu/place/burlingtongeographic/maps/interactive/#collapseHistorical" aria-expanded="true" aria-controls="collapseHistorical">
+              Historical
+            </a>
+          </h4>
+        </div>
+        <div id="collapseHistorical" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingHistorical">
+          <div class="panel-body">
+            <div class="btn-group-vertical" id="historicalLayers">
+              <!--<h4>Select a Layer:</h4>-->
+            <button class="btn btn-default btn-xs btn-block" type="button">1810 - "A correct map of Burlington from actual survey." Made by W. Colt</button><button class="btn btn-default btn-xs btn-block" type="button">1830 - Plan of Burlington Village Drawn by A.B. Young</button><button class="btn btn-default btn-xs btn-block" type="button">1890 - Map of the City of Burlington by G.M. Hopkins</button><button class="btn btn-default btn-xs btn-block" type="button">1937 - Aerial photography of Burlington, VT by Sanborn Co.</button></div>          
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-primary">
+        <div class="panel-heading" role="tab" id="headingBase">
+          <h4 class="panel-title">
+            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="https://www.uvm.edu/place/burlingtongeographic/maps/interactive/#collapseBase" aria-expanded="true" aria-controls="collapseBase">
+              Basemap
+            </a>
+          </h4>
+        </div>
+        <div id="collapseBase" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingBase">
+          <div class="panel-body">
+            <div class="btn-group" id="baseControls">
+              <a class="btn btn-success btn-xs" href="https://www.uvm.edu/place/burlingtongeographic/maps/interactive/#" id="streets"><i class="fa fa-road"></i> Streets</a> 
+              <a class="btn btn-success btn-xs" href="https://www.uvm.edu/place/burlingtongeographic/maps/interactive/#" id="satellite"><i class="fa fa-globe"></i> Satellite</a>
+            </div>          
+          </div>
+        </div>
+      </div>
+      <div class="btn-group-vertical btn-group-justified">
+        <a class="btn btn-default btn-xs" target="_blank" href="https://www.uvm.edu/place/burlingtongeographic/maps/interactive/data/"><i class="fa fa-download"></i> Download Source Data</a>
+      </div>
+    </div>
+
+    
+  </div>
+
+  <div id="map" class="leaflet-container leaflet-retina leaflet-fade-anim" tabindex="0"><div class="leaflet-map-pane" style="transform: translate3d(0px, -29px, 0px);"><div class="leaflet-tile-pane"><div class="leaflet-layer"><div class="leaflet-tile-container"></div><div class="leaflet-tile-container"></div></div><div class="leaflet-layer"><div class="leaflet-tile-container"></div><div class="leaflet-tile-container leaflet-zoom-animated"><img class="leaflet-tile leaflet-tile-loaded" src="./btv_files/2962@2x.png" style="height: 256px; width: 256px; left: 273px; top: 64px;"><img class="leaflet-tile leaflet-tile-loaded" src="./btv_files/2963@2x.png" style="height: 256px; width: 256px; left: 273px; top: 320px;"><img class="leaflet-tile leaflet-tile-loaded" src="./btv_files/2962@2x(1).png" style="height: 256px; width: 256px; left: 17px; top: 64px;"><img class="leaflet-tile leaflet-tile-loaded" src="./btv_files/2962@2x(2).png" style="height: 256px; width: 256px; left: 529px; top: 64px;"><img class="leaflet-tile leaflet-tile-loaded" src="./btv_files/2963@2x(1).png" style="height: 256px; width: 256px; left: 17px; top: 320px;"><img class="leaflet-tile leaflet-tile-loaded" src="./btv_files/2963@2x(2).png" style="height: 256px; width: 256px; left: 529px; top: 320px;"><img class="leaflet-tile leaflet-tile-loaded" src="./btv_files/2961@2x.png" style="height: 256px; width: 256px; left: 273px; top: -192px;"><img class="leaflet-tile leaflet-tile-loaded" src="./btv_files/2964@2x.png" style="height: 256px; width: 256px; left: 273px; top: 576px;"><img class="leaflet-tile leaflet-tile-loaded" src="./btv_files/2961@2x(1).png" style="height: 256px; width: 256px; left: 17px; top: -192px;"><img class="leaflet-tile leaflet-tile-loaded" src="./btv_files/2961@2x(2).png" style="height: 256px; width: 256px; left: 529px; top: -192px;"><img class="leaflet-tile leaflet-tile-loaded" src="./btv_files/2964@2x(1).png" style="height: 256px; width: 256px; left: 17px; top: 576px;"><img class="leaflet-tile leaflet-tile-loaded" src="./btv_files/2964@2x(2).png" style="height: 256px; width: 256px; left: 529px; top: 576px;"><img class="leaflet-tile leaflet-tile-loaded" src="./btv_files/2962@2x(3).png" style="height: 256px; width: 256px; left: -239px; top: 64px;"><img class="leaflet-tile leaflet-tile-loaded" src="./btv_files/2962@2x(4).png" style="height: 256px; width: 256px; left: 785px; top: 64px;"><img class="leaflet-tile leaflet-tile-loaded" src="./btv_files/2963@2x(3).png" style="height: 256px; width: 256px; left: -239px; top: 320px;"><img class="leaflet-tile leaflet-tile-loaded" src="./btv_files/2963@2x(4).png" style="height: 256px; width: 256px; left: 785px; top: 320px;"><img class="leaflet-tile leaflet-tile-loaded" src="./btv_files/2961@2x(3).png" style="height: 256px; width: 256px; left: -239px; top: -192px;"><img class="leaflet-tile leaflet-tile-loaded" src="./btv_files/2961@2x(4).png" style="height: 256px; width: 256px; left: 785px; top: -192px;"><img class="leaflet-tile leaflet-tile-loaded" src="./btv_files/2964@2x(3).png" style="height: 256px; width: 256px; left: -239px; top: 576px;"><img class="leaflet-tile leaflet-tile-loaded" src="./btv_files/2964@2x(4).png" style="height: 256px; width: 256px; left: 785px; top: 576px;"></div></div></div><div class="leaflet-objects-pane"><div class="leaflet-shadow-pane"></div><div class="leaflet-overlay-pane"></div><div class="leaflet-marker-pane"></div><div class="leaflet-popup-pane"></div></div><div class="leaflet-top-pane"><div class="leaflet-layer" style="z-index: 7;"><div class="leaflet-tile-container"></div><div class="leaflet-tile-container leaflet-zoom-animated"><img class="leaflet-tile leaflet-tile-loaded" src="./btv_files/2962@2x(5).png" style="height: 256px; width: 256px; left: 273px; top: 64px;"><img class="leaflet-tile leaflet-tile-loaded" src="./btv_files/2963@2x(5).png" style="height: 256px; width: 256px; left: 273px; top: 320px;"><img class="leaflet-tile leaflet-tile-loaded" src="./btv_files/2962@2x(6).png" style="height: 256px; width: 256px; left: 17px; top: 64px;"><img class="leaflet-tile leaflet-tile-loaded" src="./btv_files/2962@2x(7).png" style="height: 256px; width: 256px; left: 529px; top: 64px;"><img class="leaflet-tile leaflet-tile-loaded" src="./btv_files/2963@2x(6).png" style="height: 256px; width: 256px; left: 17px; top: 320px;"><img class="leaflet-tile leaflet-tile-loaded" src="./btv_files/2963@2x(7).png" style="height: 256px; width: 256px; left: 529px; top: 320px;"><img class="leaflet-tile leaflet-tile-loaded" src="./btv_files/2961@2x(5).png" style="height: 256px; width: 256px; left: 273px; top: -192px;"><img class="leaflet-tile leaflet-tile-loaded" src="./btv_files/2964@2x(5).png" style="height: 256px; width: 256px; left: 273px; top: 576px;"><img class="leaflet-tile leaflet-tile-loaded" src="./btv_files/2961@2x(6).png" style="height: 256px; width: 256px; left: 17px; top: -192px;"><img class="leaflet-tile leaflet-tile-loaded" src="./btv_files/2961@2x(7).png" style="height: 256px; width: 256px; left: 529px; top: -192px;"><img class="leaflet-tile leaflet-tile-loaded" src="./btv_files/2964@2x(6).png" style="height: 256px; width: 256px; left: 17px; top: 576px;"><img class="leaflet-tile leaflet-tile-loaded" src="./btv_files/2964@2x(7).png" style="height: 256px; width: 256px; left: 529px; top: 576px;"><img class="leaflet-tile leaflet-tile-loaded" src="./btv_files/2962@2x(8).png" style="height: 256px; width: 256px; left: -239px; top: 64px;"><img class="leaflet-tile leaflet-tile-loaded" src="./btv_files/2962@2x(9).png" style="height: 256px; width: 256px; left: 785px; top: 64px;"><img class="leaflet-tile leaflet-tile-loaded" src="./btv_files/2963@2x(8).png" style="height: 256px; width: 256px; left: -239px; top: 320px;"><img class="leaflet-tile leaflet-tile-loaded" src="./btv_files/2963@2x(9).png" style="height: 256px; width: 256px; left: 785px; top: 320px;"><img class="leaflet-tile leaflet-tile-loaded" src="./btv_files/2961@2x(8).png" style="height: 256px; width: 256px; left: -239px; top: -192px;"><img class="leaflet-tile leaflet-tile-loaded" src="./btv_files/2961@2x(9).png" style="height: 256px; width: 256px; left: 785px; top: -192px;"><img class="leaflet-tile leaflet-tile-loaded" src="./btv_files/2964@2x(8).png" style="height: 256px; width: 256px; left: -239px; top: 576px;"><img class="leaflet-tile leaflet-tile-loaded" src="./btv_files/2964@2x(9).png" style="height: 256px; width: 256px; left: 785px; top: 576px;"></div></div></div></div><div class="leaflet-control-container"><div class="leaflet-top leaflet-left"><div class="leaflet-control-zoom leaflet-bar leaflet-control"><a class="leaflet-control-zoom-in" href="https://www.uvm.edu/place/burlingtongeographic/maps/interactive/#" title="Zoom in">+</a><a class="leaflet-control-zoom-out" href="https://www.uvm.edu/place/burlingtongeographic/maps/interactive/#" title="Zoom out">-</a></div></div><div class="leaflet-top leaflet-right"><div class="leaflet-control-grid map-tooltip leaflet-control" style="display: none;"><a class="close" href="https://www.uvm.edu/place/burlingtongeographic/maps/interactive/#" title="close">close</a><div class="map-tooltip-content"></div></div></div><div class="leaflet-bottom leaflet-left"><div class="info leaflet-control"></div><div class="mapbox-logo leaflet-control"></div></div><div class="leaflet-bottom leaflet-right"><div class="map-legends wax-legends leaflet-control" style="display: none;"></div><div class="leaflet-control-attribution leaflet-control"></div></div></div></div>
+  <script src="./btv_files/jquery.min.js"></script>
+  <script src="./btv_files/bootstrap.min.js"></script>
+  <script src="./btv_files/mapbox.js"></script>
+  <script src="./btv_files/topojson.v1.min.js"></script>
+  <script src="js/allLayers.js"></script>
+
+</body></html>
