@@ -1,0 +1,59 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.leaflet-top-pane {
+  pointer-events: none;
+}
+
+#map-ui {
+  position: absolute;
+  height: 100%;
+  right: 0;
+  width: 220px;
+  margin: 0;
+  padding: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.8);
+}
+
+.btn-group, .btn-group-vertical {
+  padding: 15px;
+}
+
+.btn {
+  margin-bottom: 4px;
+  white-space: normal;
+}
+
+.info {
+  padding: 6px 8px;
+  font: 14px/16px Arial, Helvetica, sans-serif;
+  background: #FFF;
+  background: rgba(255,255,255,0.8);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 0px;
+  max-width:60%;
+}
+
+.info h4 {
+  margin: 0 0 5px;
+  color: #777;
+}
+
+.tooltip {
+  opacity:1;
+}
+
+.map-tooltip {
+  min-height: 80px;
+  min-width: 320px;
+}

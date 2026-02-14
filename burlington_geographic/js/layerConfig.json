@@ -1,0 +1,128 @@
+[
+ {
+   "use": "city",
+   "name": "City Boundary",
+   "zindex": 1,
+   "type": "social",
+   "filename": "burlington"
+ },
+ {
+   "use": "county",
+   "name": "Chittenden County Towns",
+   "zindex": 2,
+   "type": "social",
+   "filename": "chittenden_county"
+ },
+ {
+   "use": "bedrock",
+   "name": "Bedrock Geology",
+   "zindex": 4,
+   "type": "natural",
+   "filename": "chittenden_bedrock"
+ },
+ {
+   "use": "surfgeo",
+   "name": "Surficial Geology",
+   "zindex": 5,
+   "type": "natural",
+   "filename": "chittenden_surficial_geology"
+ },
+ {
+   "use": "L.tileLayer('https://s3.amazonaws.com/geosprocket/tiles/btv-soils/{z}/{x}/{y}.png')",
+   "name": "Soil Types",
+   "zindex": 6,
+   "type": "natural",
+   "filename": "btv_soils"
+ },
+ {
+   "use": "subwatersheds",
+   "name": "Subwatersheds",
+   "zindex": 7,
+   "type": "natural",
+   "filename": "chittenden_subwatersheds"
+ },
+ {
+   "use": "L.tileLayer('https://s3.amazonaws.com/geosprocket/btvgeographic/{z}/{x}/{y}.png')",
+   "name": "Elevation Contours",
+   "zindex": 8,
+   "type": "natural",
+   "filename": "btv_contours_2ft"
+ },
+ {
+   "use": "wetlands",
+   "name": "VSWI Wetlands",
+   "zindex": 9,
+   "type": "natural",
+   "filename": "chittenden_vswi_wetlands"
+ },
+ {
+   "use": "precipitation",
+   "name": "Annual Mean Precipitation",
+   "zindex": 10,
+   "type": "natural",
+   "filename": "chittenden_30yr_mean_precip_in"
+ },
+ {
+   "use": "popdensity",
+   "name": "Population Density, 2010",
+   "zindex": 11,
+   "type": "social",
+   "filename": "btv_census_blocks_2010"
+ },
+ {
+   "use": "housing",
+   "name": "Households, 2010",
+   "zindex": 12,
+   "type": "social",
+   "filename": "btv_census_blocks_2010"
+ },
+ {
+   "use": "parks",
+   "name": "City Parks",
+   "zindex": 13,
+   "type": "social",
+   "filename": "btv_parks"
+ },
+ {
+   "use": "L.mapbox.tileLayer('landplanner.hm1kg9l2')",
+   "name": "Building Footprints",
+   "zindex": 14,
+   "type": "social",
+   "filename": "btv_buildings"
+ },
+ {
+   "use": "gardens",
+   "name": "Community Gardens",
+   "zindex": 15,
+   "type": "social",
+   "filename": "btv_community_gardens"
+ },
+ {
+   "use": "L.tileLayer('http://mapwarper.net/layers/tile/586/{z}/{x}/{y}.png')",
+   "name": "1810 - A correct map of Burlington from actual survey. Made by W. Colt",
+   "zindex": 16,
+   "type": "historical",
+   "filename": "http://mapwarper.net/layers/586"
+ },
+ {
+   "use": "L.tileLayer('http://mapwarper.net/layers/tile/572/{z}/{x}/{y}.png')",
+   "name": "1830 - Plan of Burlington Village Drawn by A.B. Young",
+   "zindex": 17,
+   "type": "historical",
+   "filename": "http://mapwarper.net/layers/572"
+ },
+ {
+   "use": "L.tileLayer('http://mapwarper.net/layers/tile/576/{z}/{x}/{y}.png')",
+   "name": "1890 - Map of the City of Burlington by G.M. Hopkins",
+   "zindex": 18,
+   "type": "historical",
+   "filename": "http://mapwarper.net/layers/576"
+ },
+ {
+   "use": "L.tileLayer('http://mapwarper.net/layers/tile/409/{z}/{x}/{y}.png')",
+   "name": "1937 - Aerial photography of Burlington, VT by Sanborn Co.",
+   "zindex": 19,
+   "type": "historical",
+   "filename": "http://mapwarper.net/layers/409"
+ }
+]
